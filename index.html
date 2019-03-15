@@ -1,22 +1,178 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta name="theme-color" content="#1D1D1D">
-    <style>
-        body {
-            background: url('./comming_soon.svg') no-repeat center center fixed;
-            -moz-background-size: cover;
-            -webkit-background-size: cover;
-            -o-background-size: cover;
-            background-color: #1D1D1D;
-            background-size: cover;
-            background-size: 25% 25%;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bukhal</title>
+
+    <!-- favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/manifest.json">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#666666">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+
 </head>
 
-<body>
+<body id="body">
+    <div class="loader"></div>
+    <div class="color-overlay"></div>
 
+    <div class="sounds-block" style="display: none;">
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/1.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/2.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/3.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/4.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/5.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/6.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/7.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/8.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/9.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/10.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/11.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/12.mp3" type="audio/mpeg">
+        </audio>
+        <audio class="my_audio" controls preload="none">
+            <source src="sounds/13.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <main class="main">
+        <menu class="tags-menu">
+            <button class="tags-menu_button active" data-tag="interfaces">interfaces</button>
+            <button class="tags-menu_button" data-tag="branding">branding</button>
+            <button class="tags-menu_button" data-tag="illustrations">illustrations</button>
+            <button class="tags-menu_button" data-tag="print">print</button>
+        </menu>
+
+        <section class="works">
+            <div class="works-container" id="works-container">
+                <div class="works-holder interfaces">
+                    <img class="active" src="works/interfaces/1.png" alt="">
+                    <img src="works/interfaces/2.png" alt="">
+                    <img src="works/interfaces/3.png" alt="">
+                    <img src="works/interfaces/4.png" alt="">
+                </div>
+                <div class="works-holder branding">
+                    <img src="works/branding/1.png" alt="">
+                    <img src="works/branding/2.png" alt="">
+                </div>
+                <div class="works-holder illustrations">
+                    <img src="works/illustrations/1.png" alt="">
+                    <img src="works/illustrations/2.png" alt="">
+                </div>
+                <div class="works-holder print">
+                    <img src="works/print/1.png" alt="">
+                    <img src="works/print/2.png" alt="">
+                    <img src="works/print/3.png" alt="">
+                </div>
+            </div>
+        </section>
+
+        <button href="" class="logo"></button>
+    </main>
+    <section class="about">
+        <button href="" class="about_close"></button>
+        <div class="about-container">
+            <div class="about_contacts">
+                <a href="mailto:alexandr.bukhal@gmail.com" class="about_contact-link">
+                    <span class="icon email-icon"></span>
+                </a>
+                <a href="https://t.me/theonedesign" target="_blank" class="about_contact-link">
+                    <span class="icon telegram-icon"></span>
+                </a>
+            </div>
+            <div class="about_intro">
+                <h1 class="about_intro-header">Alexandr <br> Bukhal</h1>
+                <p class="about_intro-text">
+                    When asked, “If you could wish for one thing only, what would that wish be?” almost everyone; from
+                    beauty pagent contestants, to politicians, to religious leaders, to children, to the average person
+                    on the street states, “Peace On Earth” or “An end to all wars”. Those wishes, while exemplary, are
+                    meaningless. As long as humans exist there will never be peace on earth. Throughout the history of
+                    humankind there has never been peace on earth. When asked, “If you could wish for one thing only,
+                    what would that wish be?” almost everyone; from beauty pagent contestants, to politicians, to
+                    religious leaders, to children, to the average person on the street states, “Peace On Earth” or “An
+                    end to all wars”. Those wishes, while exemplary, are meaningless. As long as humans exist there
+                    will never be peace on earth. Throughout the history of humankind there has never been peace on
+                    earth
+                </p>
+            </div>
+            <div class="about_block">
+                <h2 class="about_block-header">So What I do?</h2>
+                <div class="about_block-text-holder">
+                    When asked, “If you could wish for one thing only, what would that wish be?” almost everyone; from
+                    beauty pagent contestants, to politicians, to religious leaders, to children, to the average person
+                    on the street states, “Peace On Earth” or “An end to all wars”. Those wishes, while exemplary, are
+                    meaningless.
+                </div>
+            </div>
+            <div class="about_block">
+                <h2 class="about_block-header">So What I do?</h2>
+                <div class="about_block-text-holder">
+                    <h3 class="about_block-date">2006-2008 — Freelance </h3>
+                    <p>
+                        When asked, “If you could wish for one thing only, what would that wish be?”
+                    </p>
+                    <h3 class="about_block-date">2008-2009 — Main Designer in Tyzhden Megazine </h3>
+                    <p>
+                        When asked, “If you could wish for one thing only, what would that wish be?”When asked, “If you
+                        could wish for one thing only, what would that wish be?”
+                    </p>
+                    <h3 class="about_block-date">2009-2010 — Freelance</h3>
+                    <p>
+                        When asked, “If you could wish for one thing only, what would that wish be?”When asked, “If you
+                        could wish for one thing only, what would that wish be?”
+                    </p>
+                    <h3 class="about_block-date">2010-2011 — Lead Designer in BNL Marketing Agency </h3>
+                    <p>
+                        When asked, “If you could wish for one thing only, what would that wish be?”When asked, “If you
+                        could wish for one thing only, what would that wish be?”
+                    </p>
+                </div>
+            </div>
+            <div class="about_block">
+                <h2 class="about_block-header">Contacts</h2>
+                <a href="mailto:alexandr.bukhal@gmail.com" class="about_contact-link">
+                    <span class="icon email-icon"></span>
+                    alexandr.bukhal@gmail.com
+                </a>
+                <a href="https://t.me/theonedesign" target="_blank" class="about_contact-link">
+                    <span class="icon telegram-icon"></span>
+                    @theonedesign
+                </a>
+            </div>
+        </div>
+    </section>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
