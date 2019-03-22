@@ -3,38 +3,33 @@ window.onload = () => {
 }
 
 $( document ).ready(function() {
-    const $body = $('body')
-    const $logo = $('.logo')
-    const $about = $('.about')
-    const $aboutClose = $('.about_close')
-    const $soundsBlock = $('.sounds-block')
     const $tagMenuButton = $('.tags-menu_button')
-    const $worksHolder = $('.works-holder')
     const $colorOverlay = $('.color-overlay')
+    const $worksContainer = $('.works-container')
+    const $audio = $('.my_audio')
+    const $worksHolder = $('.works-holder')
+    const $body = $('body')
     const app = {
         activeTag: 'interfaces',
-        colorOverlayDuration: 800,
-        sounds: 13,
-        works: {
-            interfaces: 4,
-            illustrations: 2,
-            print: 3,
-            branding: 2,
-        },
+        colorOverlayDuration: 1000,
+        sounds: 7,
+        works: {},
         lastActive: 0,
+        lastSoundActive: 0,
+        bg: '',
     }
 
-    $tagMenuButton.click(function() {
-        $tagMenuButton.removeClass('active')
-        $(this).addClass('active')
-        app.activeTag = $(this).attr('data-tag')
-    })   
-
+    $worksHolder.each(function(index) {
+        const holderName = $(this).data('holder')
+        const length = $(this).children().length
+        
+        app.works[holderName] = length
+    })
 
     const showColorOverlay = () => {
-        $colorOverlay.addClass('active')
+        $body.addClass('overlay-active')
         setTimeout(() => {
-            $colorOverlay.removeClass('active')
+            $body.removeClass('overlay-active')
         }, app.colorOverlayDuration)
     }
 
@@ -42,19 +37,26 @@ $( document ).ready(function() {
         let num
         do {
             num = Math.floor(Math.random() * app.works[app.activeTag]) + 1
-        } while(num === app.lastActive)
+        } while (num === app.lastActive)
 
-        console.log(num)
+        const activeWorkImg = $(`.works-holder.${app.activeTag} img:nth-child(${num})`)
 
         $('.works-holder img').removeClass('active')
-        $(`.works-holder.${app.activeTag} img:nth-child(${num})`).addClass('active')
+        activeWorkImg.addClass('active')
         app.lastActive = num
+        $('body').css({backgroundColor: activeWorkImg.data('color')});
     }
 
     const playSound = () => {
-        const num = Math.floor(Math.random() * (app.sounds - 1)) + 1
+
+        let num
+        do {
+            num = Math.floor(Math.random() * (app.sounds - 1)) + 1
+        } while (num === app.lastSoundActive)
+
+        app.lastSoundActive = num
         
-        $('.my_audio')[num].play()
+        $audio[num].play()
     }
 
     const showWork = () => {
@@ -63,9 +65,6 @@ $( document ).ready(function() {
         chooseWork()
     }
 
-    const $worksContainer = $('.works-container')
-    const soundsCount = 13
-    
     $worksContainer.click(showWork)
 
     const showAbout = () => $('body').addClass('about-active')
@@ -73,5 +72,12 @@ $( document ).ready(function() {
 
     $('.logo').click(showAbout)
     $('.about_close').click(hideAbout)
+
+    $tagMenuButton.click(function() {
+        $tagMenuButton.removeClass('active')
+        $(this).addClass('active')
+        app.activeTag = $(this).attr('data-tag')
+        showWork()
+    }) 
 });
  
