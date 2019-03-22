@@ -57,7 +57,7 @@ body.loaded {
     background: #000 url('../img/flash-animation.gif') center no-repeat;
     background-size: 40px;
     transition: all .4s ease;
-    transition-delay: 1s;
+    transition-delay: .3s;
 }   
 
 .icon {
@@ -106,7 +106,11 @@ body.loaded {
 
     animation: 1s infinite bg2;
 
-    &.active {
+    
+}
+
+body.overlay-active {
+    .color-overlay {
         display: block;
     }
 }
@@ -191,7 +195,7 @@ body.loaded {
 body {
     .about {
         transition: all var(--fade-transition-time) var(--transition-ease);
-        transform: scale(2);
+        // transform: scale(2);
         will-change: transform, opacity, visibility;
     }
 
@@ -200,7 +204,7 @@ body {
         .about {
             opacity: 1;
             visibility: visible;
-            transform: scale(1);
+            // transform: scale(1);
         }
     }
 }
@@ -222,12 +226,17 @@ body {
         position: relative;
         max-width: 960px;
         margin: 0 auto;
-        padding: 160px 0;
+        padding: 160px 20px;
         min-height: 100%;
         background: url('../img/guy.jpg') no-repeat 30px 250px;
+
+        @media (max-width: 860px) {
+            padding: 120px 20px 20px;
+        }
     }
 
     .about_close {
+        z-index: 3;
         width: 22px;
         height: 22px;
         position: fixed;
@@ -244,6 +253,10 @@ body {
     .about_intro {
         display: flex;
         padding-bottom: 65px;
+
+        @media (max-width: 860px) {
+            display: block;
+        }
 
         .about_intro-header {
             font-size: 66px;
@@ -269,23 +282,49 @@ body {
                 top: -70px;
                 left: -46px;
             }
+
+            @media (max-width: 1060px) {
+                margin-left: 50px;
+            }
         }
 
         .about_intro-text {
             margin-top: 120px;
             columns: 2;
             column-gap: 40px;
+
+            @media (max-width: 1060px) {
+                columns: 1;
+            }
+
+            @media (max-width: 860px) {
+                margin-top: 40px;
+            }
         }
     }
 
     .about_block {
         display: flex;
         margin-bottom: 65px;
+
+        @media (max-width: 860px) {
+            display: block;
+        }
+
+        .about_contact-link {
+            @media (max-width: 500px) {
+                display: block;
+            }
+        }
     }
     .about_block-header {
         font-size: 18px;
         line-height: 0.9;
         flex: 0 0 270px;
+
+        @media (max-width: 860px) {
+            margin-bottom: 20px;
+        }
     }
     .about_block-text-holder {
         .about_block-date {
@@ -300,11 +339,21 @@ body {
         text-decoration: none;
         font-size: 14px;
         margin-right: 65px;
+        transition: opacity var(--transition-time) var(--transition-ease);
+
+        &:hover {
+            opacity: .6;
+        }
     }
     .about_contacts {
         position: absolute;
         top: 160px;
         right: 0;
+
+        @media (max-width: 860px) {
+            top: 210px;
+            right: 20px;
+        }
 
         .about_contact-link {
             margin-right: 0;
@@ -315,30 +364,37 @@ body {
 
 
 
+
 // WORKS
 // ---------------------
 .works {
-    padding: 0 8vw;
 
     .works-container {
         min-height: 100vh;
-        padding: 40px 0;
+        padding: 40px 9vw;
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
 
         img {
-            max-width: 100%;
+            max-width: 980px;
             transition: transform var(--transition-time) var(--transition-ease);
-            cursor: pointer;
+            transform: translateY(15px);
+            
+            
             display: none;
 
             &.active {
                 display: block;
             }
 
-            &:hover {
-                transform: scale(1.01);
+            @media (max-width: 860px) {
+                margin-top: 120px;
+            }
+
+            @media (max-width: 1170px) {
+                max-width: 100%;
             }
         }
     }
