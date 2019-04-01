@@ -14,10 +14,16 @@ $( document ).ready(function() {
         colorOverlayDuration: 1000,
         sounds: 7,
         works: {},
-        lastActive: 0,
         lastSoundActive: 0,
         bg: '',
+        randoms: [],
     }
+
+    const showMenu = () => $('body').addClass('menu-active')
+    const hideMenu = () => $('body').removeClass('menu-active')
+
+    $('.mobile-menu_button').click(showMenu)
+    $('.tags-menu_close').click(hideMenu)
 
     $worksHolder.each(function(index) {
         const holderName = $(this).data('holder')
@@ -34,17 +40,25 @@ $( document ).ready(function() {
     }
 
     const chooseWork = () => {
+        if (app.randoms.length === app.works[app.activeTag]) {
+            app.randoms = []
+        }
+
         let num
         do {
             num = Math.floor(Math.random() * app.works[app.activeTag]) + 1
-        } while (num === app.lastActive)
+        } while (app.randoms.includes(num))
 
+        app.randoms.push(num)
+        
         const activeWorkImg = $(`.works-holder.${app.activeTag} img:nth-child(${num})`)
 
         $('.works-holder img').removeClass('active')
         activeWorkImg.addClass('active')
-        app.lastActive = num
-        $('body').css({backgroundColor: activeWorkImg.data('color')});
+        $('body').css({backgroundColor: activeWorkImg.data('color')})
+        hideMenu()
+
+        window.scrollTo(0, 0)
     }
 
     const playSound = () => {
@@ -74,6 +88,7 @@ $( document ).ready(function() {
     $('.about_close').click(hideAbout)
 
     $tagMenuButton.click(function() {
+        app.randoms = []
         $tagMenuButton.removeClass('active')
         $(this).addClass('active')
         app.activeTag = $(this).attr('data-tag')

@@ -104,7 +104,7 @@ body.loaded {
     z-index: 3;
     display: none;
 
-    animation: 1s infinite bg2;
+    animation: 1s infinite bg1;
 
     
 }
@@ -128,37 +128,30 @@ body.overlay-active {
     100%   {background: #45B37D;}
 }
 
-@keyframes bg2 {
-    0%   {background: #D0357A;}
-    10%   {background: #A235D0;}
-    20%   {background: #D06235;}
-    30%   {background: #433163;}
-    40%   {background: #F428F8;}
-    50%   {background: #5C3DD4;}
-    60%   {background: #5F5B71;}
-    70%   {background: #45B37D;}
-    80%   {background: #551FD5;}
-    90%   {background: #D06235;}
-    100%   {background: #45B37D;}
-}
-
-@keyframes bg2 {
-    0%   {background: #D43D3D;}
-    10%   {background: #5F5B71;}
-    20%   {background: #45B37D;}
-    30%   {background: #D06235;}
-    40%   {background: #433163;}
-    50%   {background: #F428F8;}
-    60%   {background: #45B37D;}
-    70%   {background: #551FD5;}
-    80%   {background: #F5E682;}
-    90%   {background: #433163;}
-    100%   {background: #A235D0;}
-}
-
 
 // TAGS
 // ---------------------
+
+.mobile-menu_button {
+    position: fixed;
+    top: 25px;
+    left: 20px;
+    width: 38px;
+    height: 30px;
+    background: none;
+
+    span {
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        margin: 5px 0;
+        display: block;
+      }
+    
+      @media (min-width: 960px) {
+          display: none;
+      }  
+}
 
 .tags-menu {
     position: fixed;
@@ -185,7 +178,51 @@ body.overlay-active {
             background: var(--light-color);
             color: var(--dark-color);
         }
+
+        @media (max-width: 960px) {
+            font-size: 20px;
+            color: #fafafa;
+            opacity: .6;
+
+            &.active, &:hover {
+                color: #fff;
+                background: none;
+                opacity: 1;
+            }
+        }
     }
+
+    .tags-menu_close {
+        display: none;
+
+        @media (max-width: 960px) {
+            display: inline-block;
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            margin-left: -11px;
+            background: url('../img/close.svg') no-repeat center;
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    @media (max-width: 960px) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 3;
+        background: rgba(0, 0, 0, .9);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+    }
+
 }
 
 
@@ -195,8 +232,20 @@ body.overlay-active {
 body {
     .about {
         transition: all var(--fade-transition-time) var(--transition-ease);
-        // transform: scale(2);
         will-change: transform, opacity, visibility;
+    }
+    .tags-menu {
+        @media (max-width: 960px) {
+            transition: opacity var(--fade-transition-time) var(--transition-ease), visibility var(--fade-transition-time) var(--transition-ease);
+            will-change: transform, opacity, visibility;
+        }
+    }
+
+    &.menu-active {
+        .tags-menu {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     &.about-active {
@@ -231,7 +280,7 @@ body {
         background: url('../img/guy.jpg') no-repeat 30px 250px;
 
         @media (max-width: 860px) {
-            padding: 120px 20px 20px;
+            padding: 120px 30px 20px;
         }
     }
 
@@ -285,6 +334,10 @@ body {
 
             @media (max-width: 1060px) {
                 margin-left: 50px;
+            }
+
+            @media (max-width: 370px) {
+                font-size: 54px;
             }
         }
 
@@ -377,6 +430,10 @@ body {
         justify-content: center;
         cursor: pointer;
 
+        // @media (max-width: 1130px) {
+        //     padding: 3vw;
+        // }
+
         img {
             max-width: 980px;
             transition: transform var(--transition-time) var(--transition-ease);
@@ -389,9 +446,9 @@ body {
                 display: block;
             }
 
-            @media (max-width: 860px) {
-                margin-top: 120px;
-            }
+            // @media (max-width: 860px) {
+            //     margin-top: 120px;
+            // }
 
             @media (max-width: 1170px) {
                 max-width: 100%;
